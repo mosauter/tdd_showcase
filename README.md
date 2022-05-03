@@ -3,6 +3,28 @@ This is a simple project to showcase a TDD-Workflow for a simple beginner
 workshop. It presents a small task/challenge and possible solutions
 step-by-step.
 
+# Setup
+
+Install `poetry` via:
+
+```sh
+$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+```
+
+After the setup (including adding `poetry` to your path), you can run:
+
+```
+$ poetry install
+```
+
+This installs all your dependencies into a `.venv` folder directly in the
+project folder. After that you can:
+
+```sh
+$ poetry run black # run stuff in the venv
+$ poetry shell # spawn a new shell with active venv
+```
+
 # Task
 
 Write a chunking algorithm in a TDD-Workflow for simple lists. The API should
