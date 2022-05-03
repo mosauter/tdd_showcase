@@ -31,7 +31,7 @@ Write a chunking algorithm in a TDD-Workflow for simple lists. The API should
 look similar to this:
 
 ```python
-def chunk(full_list: List[Any], chunksize: int) -> range:
+def chunk(full_list: List[Any], chunks: int, chunk_index: int) -> range:
     pass
 ```
 
