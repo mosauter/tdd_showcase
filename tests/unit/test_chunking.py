@@ -20,3 +20,9 @@ def test_chunking_should_give_first_half_when_asking_for_two_chunks_and_first_in
     full_list: List[int],
 ) -> None:
     assert chunk(full_list, chunks=2, chunk_index=0) == range(0, 3)
+
+
+def test_chunking_should_give_second_half_when_asking_for_two_chunks_and_second_index(
+    full_list: List[int],
+) -> None:
+    assert chunk(full_list, chunks=2, chunk_index=1) == range(3, 5)
