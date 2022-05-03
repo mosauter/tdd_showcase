@@ -1,3 +1,4 @@
+from itertools import chain
 from typing import List
 
 from pytest import fixture
@@ -26,3 +27,12 @@ def test_chunking_should_give_second_half_when_asking_for_two_chunks_and_second_
     full_list: List[int],
 ) -> None:
     assert chunk(full_list, chunks=2, chunk_index=1) == range(3, 5)
+
+
+def test_chunking_should_give_full_combined_range_if_asking_for_every_index(
+    full_list: List[int],
+) -> None:
+    first_chunk = chunk(full_list, chunks=2, chunk_index=0)
+    second_chunk = chunk(full_list, chunks=2, chunk_index=1)
+
+    assert list(chain(first_chunk, second_chunk)) == list(range(0, 5))
