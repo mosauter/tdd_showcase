@@ -15,7 +15,7 @@ python = ">=3.8,<4.0"
 
 # technically these are all dev-dependencies but this is not a prod repo
 # therefore they are here for easier use
-black = "^22.3.0"
+black = "^24.3.0"
 isort = "^5.10.1"
 mypy = "^0.950"
 pylint = "^2.13.8"
