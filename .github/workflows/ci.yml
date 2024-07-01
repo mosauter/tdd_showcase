@@ -1,0 +1,73 @@
+---
+name: CI
+
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+
+jobs:
+    lock_file_check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: ./.github/actions/setup-poetry
+            - uses: ./.github/actions/dependency-install
+
+            - name: Check lock file
+              run: poetry lock --check
+
+    formatting:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: ./.github/actions/setup-poetry
+            - uses: ./.github/actions/dependency-install
+
+            - name: Formatting
+              run: poetry run ruff format
+
+    typing:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: ./.github/actions/setup-poetry
+            - uses: ./.github/actions/dependency-install
+
+            - name: Typing
+              run: poetry run mypy
+
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: ./.github/actions/setup-poetry
+            - uses: ./.github/actions/dependency-install
+
+            - name: Linting
+              run: poetry run ruff check .
+
+    unit_test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: ./.github/actions/setup-poetry
+            - uses: ./.github/actions/dependency-install
+
+            - name: Unit Tests
+              run: poetry run pytest
+
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: ./.github/actions/setup-poetry
+            - uses: ./.github/actions/dependency-install
+
+            - name: Build
+              run: poetry build
