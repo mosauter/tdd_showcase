@@ -1,21 +1,17 @@
 ---
-name: Auto Merge
+name: Enable automerge on dependabot PRs
 
 on:
-    workflow_run:
-        workflows:
-            - CI
-        types:
-            - completed
+    pull_request_target:
 
 jobs:
-    auto-merge:
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    automerge:
+        name: Enable automerge on dependabot PRs
         runs-on: ubuntu-latest
         steps:
-            - name: Merge PR
-              uses: pascalgn/automerge-action@v0.16.3
-              permissions:
-                contents: write
-              env:
-                GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+            - name: Enable automerge on dependabot PRs
+              uses: daneden/enable-automerge-action@v1
+              with:
+                github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+                allowed-author: "dependabot[bot]"
+                merge-method: REBASE
