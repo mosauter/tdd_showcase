@@ -26,6 +26,8 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
+files = "src"
+
 # output style configuration
 show_column_numbers = true
 show_error_codes = true
