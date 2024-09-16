@@ -14,7 +14,7 @@ python = ">=3.10,<4.0"
 # technically these are all dev-dependencies but this is not a prod repo
 # therefore they are here for easier use
 mypy = "^1.11"
-pytest = "^8.3.2"
+pytest = "^8.3.3"
 pytest-cov = "^5.0.0"
 pytest-mock = "^3.14.0"
 ruff = "^0.6.4"
