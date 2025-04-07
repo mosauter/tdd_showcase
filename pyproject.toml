@@ -15,7 +15,7 @@ python = ">=3.10,<4.0"
 # therefore they are here for easier use
 mypy = "^1.14"
 pytest = "^8.3.5"
-pytest-cov = "^6.0.0"
+pytest-cov = "^6.1.1"
 pytest-mock = "^3.14.0"
 ruff = "^0.8.6"
 
